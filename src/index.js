@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TicketApp from './TicketContainer/TicketContainerPage';
+import App from './MyTestingApp/TestingData';
+import UseStateApp from './MyTestingApp/UseState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <TicketApp/>
+    {/* <App/> */}
+    {/* <UseStateApp/> */}
   </React.StrictMode>
 );
 
