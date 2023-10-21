@@ -3,7 +3,8 @@ import TicketList from "./TicketList";
 import AddTicketForm from "./TicketAddForm";
 
 const MainPage =()=>{
-    const [pageType, setPageType]= useState("addTicketPage");
+    //const [pageType, setPageType]= useState("addTicketPage");
+    const [pageType, setPageType]= useState("");
     const [tickeFormData, setTicketFormData]= useState([]);
 
     const addTicket=(addTicketData)=>{
@@ -26,17 +27,16 @@ const MainPage =()=>{
     }
 
     return(
-        <div style={{ textAlign: "left", background: "lightgreen" }}>
-            <section>
-                <p><b>This is Ticket Home Page</b></p>
-                <button type="button" onClick={()=>setPageType("addTicketPage")} style={{color:"blue"}}>Add Tickets</button>
-                {/* <button type="button">Delete Tickets</button> */}
-                <button type="button" onClick={()=>setPageType("listPage")} style={{color:"blue"}}>View Tickets</button>
+        <div  className="ticketcontApp">
+                <div>
+                    <h1><b>This is ticket home page</b></h1>
+                </div>
+                <button  className='buttonmncls' onClick={()=>setPageType("addTicketPage")}>Add Tickets</button>
+                <button  className="buttonmncls" onClick={()=>setPageType("listPage")}>View Tickets</button>
                 {pageType==="addTicketPage" && <AddTicketForm addTicket={addTicket}/>}
                 {/* {iShowViewForm && <TicketList/>} */}
                 {pageType==="listPage" && <TicketList formData={tickeFormData} deleteTicket={deleteTicket} editTicket={editTicket} />} 
-             </section>
-        </div>
+             </div>
     );    
 }
 export default MainPage;

@@ -1,12 +1,15 @@
 const TicketDetail =(props)=>{
+    let detailDatava = props.detailDatavar;
     return (
         <div>
-            <p><b>Ticket Details View</b></p>
-            <p>This is Subject : {props.subject}</p>
-            <p>This is Description : {}</p>
-            <p>This is Email : {}</p>
-            <p>This is Status : {}</p>
-            <p>This is Assigned To : {}</p>
+            <p><b>Edit the Ticket</b></p>
+            <input type="text" value={detailDatava.subject}/>  
+            <input type="text" value={detailDatava.desc}/>
+            <input type="text" value={detailDatava.email}/>
+            <input type="text" value={detailDatava.status}/>
+            <input type="text" value={detailDatava.assignedTo}/>
+            <input type="submit" className='submitBtn'/> 
+            <button className="canclBtn" onClick = {() => props.handleIsLoad(false)}>Cancel</button>
         </div>
     )
 }

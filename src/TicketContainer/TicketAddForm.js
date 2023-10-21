@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import './Ticket.css'
 
  const AddTicketForm = (props)=> {
     const [subject, setSubject]= useState("");
@@ -62,7 +63,7 @@ import { useState, useEffect, useRef } from 'react';
     const OWNER_NAMES = ["Bruce","Ashu","Deen","Gowtham","Ashwin","Un-Assigned"]; 
     return (
         <div id="TicketApp">
-            <form onSubmit={onsubmit}>
+            <form onSubmit={onsubmit} className='inputContainer'>
                 <label>Subject :   
                     <input type="text" placeholder='Subject' onChange={(e)=>handleSubjectChange(e.target.value)} value={subject}/><br/>
                 </label>
@@ -75,20 +76,17 @@ import { useState, useEffect, useRef } from 'react';
                 </label>
                 {errors.email?<p style={{color: "red"}}>{errors.email}</p>:null}
                 <label>Assigne To : 
-                    <select name="owner" onChange={(e)=>setAssignTo(e.target.value)} defaultValue={assignedTo}>
+                    <select className='selectcls' onChange={(e)=>setAssignTo(e.target.value)} defaultValue={assignedTo}>
                         {OWNER_NAMES.map((name, index) => <option key={index}>{name}</option>)}
                     </select>
                 </label>
                     <br/>
                 <label>Status : 
-                     <select name="status" onChange={(e)=> setStatus(e.target.value)} defaultValue={status} >
+                     <select className='selectcls' onChange={(e)=> setStatus(e.target.value)} defaultValue={status} >
                           {STATUS_NAMES.map((name, index)=><option key={index}>{name}</option>)} 
                     </select>
                 </label><br/>
-
-                <label>Submit Ticket : 
-                    < input style={{color:"green"}} type="submit"></input>
-                </label>
+                    < input type="submit" className='submitBtn'></input>
             </form>
         </div>
     );
