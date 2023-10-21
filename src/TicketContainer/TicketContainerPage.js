@@ -4,7 +4,7 @@ import AddTicketForm from "./TicketAddForm";
 
 const MainPage =()=>{
     //const [pageType, setPageType]= useState("addTicketPage");
-    const [pageType, setPageType]= useState("");
+    const [pageType, setPageType]= useState("addTicketPage");
     const [tickeFormData, setTicketFormData]= useState([]);
 
     const addTicket=(addTicketData)=>{
@@ -29,7 +29,7 @@ const MainPage =()=>{
     return(
         <div  className="ticketcontApp">
                 <div>
-                    <h1><b>This is ticket home page</b></h1>
+                    <h1>This is Your Ticket Home Page, Submit your first Ticket</h1>
                 </div>
                 <button  className='buttonmncls' onClick={()=>setPageType("addTicketPage")}>Add Tickets</button>
                 <button  className="buttonmncls" onClick={()=>setPageType("listPage")}>View Tickets</button>

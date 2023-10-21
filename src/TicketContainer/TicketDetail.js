@@ -8,7 +8,7 @@ const TicketDetail =(props)=>{
             <input type="text" value={detailDatava.email}/>
             <input type="text" value={detailDatava.status}/>
             <input type="text" value={detailDatava.assignedTo}/>
-            <input type="submit" className='submitBtn'/> 
+            <button  className='submitBtn'>Save</button> 
             <button className="canclBtn" onClick = {() => props.handleIsLoad(false)}>Cancel</button>
         </div>
     )
