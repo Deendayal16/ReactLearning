@@ -28,7 +28,6 @@ import './Ticket.css'
         e.preventDefault();
         validateForm(subject, email);
         if(isFormValid){
-            console.log("Inside OnSubmit.......!!!! props: "+ props);
             const { addTicket } = props;
             let arrrData = {subject,desc,email,assignedTo,status};
             addTicket(arrrData);

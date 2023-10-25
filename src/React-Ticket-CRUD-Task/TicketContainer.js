@@ -8,22 +8,16 @@ const MainPage =()=>{
     const [tickeFormData, setTicketFormData]= useState([]);
 
     const addTicket=(addTicketData)=>{
-        console.log("ticketData : "+ addTicketData);
         setTicketFormData([...tickeFormData, addTicketData]);
-        console.log("tickeFormData---> : "+ tickeFormData);
         setPageType("listPage");
     }
     const deleteTicket=(deleteTicketData)=>{
-        console.log("Delete ticketData : "+ deleteTicketData);
         let newData = tickeFormData.filter(({ subject }) => subject !== deleteTicketData)
-        console.log(" ALL Tickt newItems : "+ newData);
         setTicketFormData(newData);
         setPageType("listPage");
     }
     const editTicket=(editTicketData)=>{
-        console.log(" editTicket : "+ editTicketData);
         let newData = tickeFormData.filter(({ subject }) => subject == editTicketData.subject);
-        console.log("EditNewData- : "+ newData[0].subject);
     }
 
     return(

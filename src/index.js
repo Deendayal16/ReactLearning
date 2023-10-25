@@ -1,21 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import TicketApp from './TicketContainer/TicketContainerPage';
-import App from './MyTestingApp/TestingData';
-import UseStateApp from './MyTestingApp/UseState';
+import TicketApp from './React-Ticket-CRUD-Task/TicketContainer';
+import App from './MySelfTestingApp/TestingData';
+import UseStateApp from './MySelfTestingApp/UseState';
+import ImgApp from './React-Hands-on-Task1/ImgApp';
+import InputApp from './React-Hands-on-Task2/InputApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TicketApp/>
+     <TicketApp/>
     {/* <App/> */}
     {/* <UseStateApp/> */}
+     {/* <ImgApp/> */}
+     {/* <InputApp/> */}
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

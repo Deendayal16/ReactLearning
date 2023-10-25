@@ -3,7 +3,7 @@ import TicketDetail from "./TicketDetail";
 
 const TicketList=(props)=>{
    const ticketsData = props.formData;
-   const [detailData , setDetailViewData]= useState([]);
+   const [ticketDetailData , setTicketDetailData]= useState([]);
    const [isLoadEditPage , setIsLoadEditPage]= useState(false);
 
     const handleDelelete =(deleteData)=>{
@@ -13,17 +13,13 @@ const TicketList=(props)=>{
     };
    const handleEditTicket =(editData)=>{
         const { editTicket } = props;
-        console.log("handleEditTicket : "+ editData);
         editTicket(editData);
-        setDetailViewData(editData);
+        setTicketDetailData(editData);
         setIsLoadEditPage(true);
-        console.log("detailData: "+ detailData);
    }
    const handleIsLoad =(isShow)=>{
-    console.log("handleIsLoad---->"+ isShow);
     setIsLoadEditPage(isShow);
    }
-    console.log("TicketList data :"+ ticketsData);
     return (
         <div>
             <table>
@@ -37,7 +33,6 @@ const TicketList=(props)=>{
                     <th>Delete</th>
                 </tr>
                 {ticketsData.map((ticket, key) => {
-                    console.log("data.map.val --> : " + ticket);
                     return (
                         <tr key={key}>
                             <td>{ticket.subject}</td>
@@ -51,7 +46,7 @@ const TicketList=(props)=>{
                     )
                 }
                 )}
-                {isLoadEditPage?<TicketDetail detailDatavar={detailData} handleIsLoad={setIsLoadEditPage} /> : null}
+                {isLoadEditPage?<TicketDetail ticketData={ticketDetailData} isLoadEditPage={setIsLoadEditPage} /> : null}
             </table>
         </div>
     )
