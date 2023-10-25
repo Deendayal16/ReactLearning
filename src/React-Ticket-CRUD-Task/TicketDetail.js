@@ -1,4 +1,4 @@
-const TicketDetail =({props})=>{
+const TicketDetail =(props)=>{
     let ticketData = props.ticketData;
     return (
         <div>
