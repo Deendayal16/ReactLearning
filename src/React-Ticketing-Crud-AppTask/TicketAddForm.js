@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import './Ticket.css'
+import uniqueId from 'lodash/uniqueId';
 
  const AddTicketForm = (props)=> {
+    const id = uniqueId('');
     const [subject, setSubject]= useState("");
     const [desc, setDesc]= useState("");
     const [email, setEmail]= useState("");
@@ -9,13 +11,7 @@ import './Ticket.css'
     const [status , setStatus]= useState("Open");
     const [errors, setError]=useState({});
     const [isFormValid, setIsFormValid]= useState(false);
-    // //Trigger form validation when subject, email
-   // const firstRender =useRef(false);
-   // const firstupdate = useref(true);
-    // useEffect(()=>{
-    //     console.log("useEffect-->");
-    //     validateForm(subject, email); 
-    // },[subject,email]);
+   
     const handleSubjectChange=(sub)=>{
         setSubject(sub);
         validateForm(subject, email);
@@ -24,12 +20,12 @@ import './Ticket.css'
         setEmail(eml);
         validateForm(subject, email);
     }
-    const onsubmit=(e)=>{
+    const handleAddTicket=(e)=>{
         e.preventDefault();
         validateForm(subject, email);
         if(isFormValid){
             const { addTicket } = props;
-            let arrrData = {subject,desc,email,assignedTo,status};
+            let arrrData = {id,subject,desc,email,assignedTo,status};
             addTicket(arrrData);
         }else{
             console.log("There are some validation failed");  
@@ -62,7 +58,7 @@ import './Ticket.css'
     const OWNER_NAMES = ["Bruce","Ashu","Deen","Gowtham","Ashwin","Un-Assigned"]; 
     return (
         <div id="TicketApp">
-            <form onSubmit={onsubmit} className='inputContainer'>
+            <form onSubmit={handleAddTicket} className='inputContainer'>
                 <label>Subject :   
                     <input type="text" placeholder='Subject' onChange={(e)=>handleSubjectChange(e.target.value)} value={subject}/><br/>
                 </label>

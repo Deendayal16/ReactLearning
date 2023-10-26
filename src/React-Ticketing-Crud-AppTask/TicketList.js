@@ -11,11 +11,14 @@ const TicketList=(props)=>{
         deleteTicket(deleteData);
         setIsLoadEditPage(false);
     };
+    const handleEditPage=(editData)=>{
+        setTicketDetailData(editData);
+        setIsLoadEditPage(true);
+    }
    const handleEditTicket =(editData)=>{
         const { editTicket } = props;
         editTicket(editData);
-        setTicketDetailData(editData);
-        setIsLoadEditPage(true);
+        console.log("handleEditTicket id +  sub : "+ editData.id +" "+ editData.subject);
    }
    const handleIsLoad =(isShow)=>{
     setIsLoadEditPage(isShow);
@@ -24,6 +27,7 @@ const TicketList=(props)=>{
         <div>
             <table>
                 <tr>
+                    <th>id</th>
                     <th>Subject</th>
                     <th>Desc</th>
                     <th>Email</th>
@@ -35,18 +39,19 @@ const TicketList=(props)=>{
                 {ticketsData.map((ticket, key) => {
                     return (
                         <tr key={key}>
+                            <td>{ticket.id}</td>
                             <td>{ticket.subject}</td>
                             <td>{ticket.desc}</td>
                             <td>{ticket.email}</td>
                             <td>{ticket.assignedTo}</td>
                             <td>{ticket.status}</td>
-                            <td><button  className="submitBtn" onClick = {()=>handleEditTicket(ticket)}>Edit</button></td>
-                            <td><button  className="canclBtn" onClick = {()=>handleDelelete(ticket.subject)}>Delete</button></td>
+                            <td><button  className="submitBtn" onClick = {()=>handleEditPage(ticket)}>Edit</button></td>
+                            <td><button  className="canclBtn" onClick = {()=>handleDelelete(ticket)}>Delete</button></td>
                         </tr>
                     )
                 }
                 )}
-                {isLoadEditPage?<TicketDetail ticketData={ticketDetailData} isLoadEditPage={setIsLoadEditPage} /> : null}
+                {isLoadEditPage?<TicketDetail ticketData={ticketDetailData} isLoadEditPage={setIsLoadEditPage} handleEditTicket={handleEditTicket} /> : null}
             </table>
         </div>
     )

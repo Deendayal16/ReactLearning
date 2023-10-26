@@ -12,13 +12,13 @@ import Task5App from './React-Hands-on-Task5/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     {/* <TicketApp/> */}
+      <TicketApp/>
     {/* <App/> */}
     {/* <UseStateApp/> */}
      {/* <ImgApp/> */}
      {/* <InputApp/> */}
      {/* <TextColourApp/> */}
      {/* <Task4App/> */}
-     <Task5App></Task5App>
+     {/* <Task5App/> */}
   </React.StrictMode>
 );

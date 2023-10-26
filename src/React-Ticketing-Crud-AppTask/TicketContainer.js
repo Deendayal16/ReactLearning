@@ -12,12 +12,17 @@ const MainPage =()=>{
         setPageType("listPage");
     }
     const deleteTicket=(deleteTicketData)=>{
-        let newData = tickeFormData.filter(({ subject }) => subject !== deleteTicketData)
+        console.log("deleteTicketData : "+ deleteTicketData.id);
+        let newData = tickeFormData.filter(({ id }) => id != deleteTicketData.id);
         setTicketFormData(newData);
         setPageType("listPage");
     }
     const editTicket=(editTicketData)=>{
-        let newData = tickeFormData.filter(({ subject }) => subject == editTicketData.subject);
+        debugger
+        console.log("editTicketData : "+ editTicketData.id);
+        let newData = tickeFormData.filter(({ id }) => id != editTicketData.id);
+        //setTicketFormData(newData);
+        setTicketFormData([...newData, editTicketData]);
     }
 
     return(
