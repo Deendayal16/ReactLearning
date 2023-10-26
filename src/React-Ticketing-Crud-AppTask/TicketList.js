@@ -18,7 +18,6 @@ const TicketList=(props)=>{
    const handleEditTicket =(editData)=>{
         const { editTicket } = props;
         editTicket(editData);
-        console.log("handleEditTicket id +  sub : "+ editData.id +" "+ editData.subject);
    }
    const handleIsLoad =(isShow)=>{
     setIsLoadEditPage(isShow);
@@ -45,6 +44,7 @@ const TicketList=(props)=>{
                             <td>{ticket.email}</td>
                             <td>{ticket.assignedTo}</td>
                             <td>{ticket.status}</td>
+                            {/* We can use Add ticket form for Edit Page also istead of TicketDetail */}
                             <td><button  className="submitBtn" onClick = {()=>handleEditPage(ticket)}>Edit</button></td>
                             <td><button  className="canclBtn" onClick = {()=>handleDelelete(ticket)}>Delete</button></td>
                         </tr>

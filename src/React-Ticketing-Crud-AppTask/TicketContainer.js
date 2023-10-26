@@ -3,7 +3,6 @@ import TicketList from "./TicketList";
 import AddTicketForm from "./TicketAddForm";
 
 const MainPage =()=>{
-    //const [pageType, setPageType]= useState("addTicketPage");
     const [pageType, setPageType]= useState("addTicketPage");
     const [tickeFormData, setTicketFormData]= useState([]);
 
@@ -12,16 +11,12 @@ const MainPage =()=>{
         setPageType("listPage");
     }
     const deleteTicket=(deleteTicketData)=>{
-        console.log("deleteTicketData : "+ deleteTicketData.id);
         let newData = tickeFormData.filter(({ id }) => id != deleteTicketData.id);
         setTicketFormData(newData);
         setPageType("listPage");
     }
     const editTicket=(editTicketData)=>{
-        debugger
-        console.log("editTicketData : "+ editTicketData.id);
         let newData = tickeFormData.filter(({ id }) => id != editTicketData.id);
-        //setTicketFormData(newData);
         setTicketFormData([...newData, editTicketData]);
     }
 

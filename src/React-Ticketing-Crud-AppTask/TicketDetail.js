@@ -2,16 +2,13 @@ import { useState } from "react";
 
 const TicketDetail =(props)=>{
     let ticketData = props.ticketData;
-    //let meth = handleEditTicket.props;
-    //console.log("Meth - : "+ meth);
-    const id =  useState(ticketData.id);
+    const id =  ticketData.id;
     let [subject , setSubject]= useState(ticketData.subject);
     let [desc , setDesc]= useState(ticketData.desc);
     let [email , setEmail]= useState(ticketData.email);
     let [status , setStatus]= useState(ticketData.status);
     let [assignedTo , setAssigne]= useState(ticketData.assignedTo);
-    //let newdata = {id, subject, email, status, assigne};
-    let newdata = {id,subject,desc,email,assignedTo,status};
+    const newdata = {id,subject,desc,email,assignedTo,status};
 
     return (
         <div>
